@@ -1,15 +1,46 @@
 # Celler — DID-Addressed Encrypted Telephony over Starlink Mesh
 
-Design: `90-docs/260327-celler-did-telephony-starlink-mesh-design.md`
+Design: `docs/260327-celler-did-telephony-starlink-mesh-design.edn`
+
+## Provenance, and why 30 `etzhayyim` strings are still here on purpose
+
+This repository lives at **`kotoba-lang/celler`** and its identity is
+**`celler.kotoba-lang.org`** / `did:web:celler.kotoba-lang.org`. The identity was
+rewritten from `celler.etzhayyim.com` on 2026-08-30 (owner instruction), together
+with the lexicon namespace (`com.etzhayyim.apps.celler.*` →
+`org.kotoba-lang.apps.celler.*`) and the npm package name (`@etzhayyim/celler-kotoba`
+→ `@kotoba-lang/celler`). Neither host has ever resolved, so nothing was live to
+break.
+
+What was deliberately **not** rewritten, because it is etzhayyim's and not
+celler's — renaming it would have pointed the repo at things that do not exist:
+
+| kept | why |
+|---|---|
+| `@etzhayyim/sdk`, `@etzhayyim/sdk-mock` | real git dependencies on `github.com/etzhayyim/com-etzhayyim-sdk{,-mock}` |
+| `https://etzhayyim.com/ns/kotodama/v1` | the JSON-LD `@context`, defined by etzhayyim |
+| `did:web:etzhayyim.com`, `did:web:alice.*` | the platform DID and user-fixture DIDs, not this service's |
+| `llm.etzhayyim.com` / `com.etzhayyim.apps.llm.verify_celler_ai` | an etzhayyim service this one calls |
+| `com.etzhayyim.rtc.*`, `com.etzhayyim.signal.*` | NSIDs owned and defined elsewhere, reused here |
+| `NOTICE` (Apache-2.0 + Charter Rider v3.1) | a licence obligation, not a name |
+| `migration.edn` | the historical record of the `etzhayyim/root` split. Its `:destination` names the repo as it was then; the repo has since moved here. The record is left intact rather than backdated |
+| `README.edn` `:schema "etzhayyim.repository/v1"` | a workspace-wide metadata schema — repos across gftdcojp and others declare it too |
+| `appview/etzhayyim-wasm-celler-oilt0wta/` | a build artifact directory (it holds an 8.4 MB compiled Mach-O) emitted by `etzhayyim deploy`. Renaming it by hand would desync the artifact from its builder |
+
+Two things this repository is out of step with, recorded rather than silently
+carried: it is **TypeScript**, where the workspace rule is portable `.cljc`
+(ADR-2608201300 and the runtime-priority rule), and it commits an **8.4 MB
+binary** into git history, where the rule is DataLad + B2 (skill
+`large-binary-datalad`). Neither was in scope for the identity rewrite.
 
 ## Runtime
 
 | key | value |
 |---|---|
-| domain | celler.etzhayyim.com |
+| domain | celler.kotoba-lang.org |
 | nanoid | oilt0wta |
 | performerType | service |
-| DID | `did:web:celler.etzhayyim.com` |
+| DID | `did:web:celler.kotoba-lang.org` |
 | Language | TypeScript (TS Native) |
 | Build | `etzhayyim deploy` |
 | UI mode | iframe |
@@ -171,7 +202,7 @@ Telnyx 単一 API で eSIM + SIP trunk + 番号プロビジョニング + WebRTC
 
 ## NSID Namespace
 
-`com.etzhayyim.apps.celler.*`
+`org.kotoba-lang.apps.celler.*`
 
 | interface | key operations |
 |---|---|

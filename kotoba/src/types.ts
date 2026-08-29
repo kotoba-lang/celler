@@ -11,13 +11,13 @@
  * CDR collection exists here. Only the user's own number bindings live on AT PDS.
  *
  * Identity hierarchy:
- *   did:web:celler.etzhayyim.com                       — controller
- *   did:web:celler.etzhayyim.com:number:{numberId}     — a provisioned number
+ *   did:web:celler.kotoba-lang.org                       — controller
+ *   did:web:celler.kotoba-lang.org:number:{numberId}     — a provisioned number
  */
 
-export const CELLER_DID_PREFIX = "did:web:celler.etzhayyim.com:" as const;
+export const CELLER_DID_PREFIX = "did:web:celler.kotoba-lang.org:" as const;
 
-export const NUMBER_COLLECTION = "com.etzhayyim.apps.celler.number";
+export const NUMBER_COLLECTION = "org.kotoba-lang.apps.celler.number";
 
 export type NumberStatus = "active" | "suspended" | "released";
 

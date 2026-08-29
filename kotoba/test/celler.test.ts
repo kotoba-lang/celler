@@ -14,7 +14,7 @@ import {
 describe("celler kotoba", () => {
   let e: any;
   beforeEach(() => {
-    e = new MockEtzhayyim({ did: "did:web:celler.etzhayyim.com" });
+    e = new MockEtzhayyim({ did: "did:web:celler.kotoba-lang.org" });
   });
 
   describe("helpers", () => {
@@ -25,7 +25,7 @@ describe("celler kotoba", () => {
       expect(isValidE164("+0123")).toBe(false);
     });
     it("derives number DID", () => {
-      expect(numberDid("N-1")).toBe("did:web:celler.etzhayyim.com:number:n-1");
+      expect(numberDid("N-1")).toBe("did:web:celler.kotoba-lang.org:number:n-1");
     });
   });
 

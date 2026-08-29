@@ -1,4 +1,4 @@
 {:schema "etzhayyim.repository/v1"
- :name "com-etzhayyim-app-celler"
+ :name "celler"
  :kind :app
  :canonical-metadata :edn}

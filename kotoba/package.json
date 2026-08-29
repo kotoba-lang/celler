@@ -1,5 +1,5 @@
 {
-  "name": "@etzhayyim/celler-kotoba",
+  "name": "@kotoba-lang/celler",
   "version": "0.0.0",
   "private": true,
   "type": "module",
